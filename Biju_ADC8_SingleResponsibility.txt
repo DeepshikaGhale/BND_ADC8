@@ -1,0 +1,33 @@
+The Single Responsibility Principle (SRP) states that a class
+should have only one reason to SingleResponsibilitychange.
+It was first cited in this form by Robert C.
+Martin in an article that later formed a chapter in his 
+Principles, Patterns, and Practices of Agile Software Development 
+book.
+
+example:
+
+
+class SuperDuper {
+  constructor(notDuper: NotSoDuper) {
+    this.notDuper = notDuper
+  }
+  makeThingsFastAndEasy() {
+     // Super readable and efficient code
+    
+    if (someCondition) {
+      this.notDuper.invokeSomeMethod()
+    } else {
+      this.callInternalMethod()
+    }
+  }
+}
+
+class SuperDuper {
+ 
+  makeThingsFastAndEasy() {
+     // Super readable and efficient code
+     ...
+     dispatcher.send(actionForTheNotDuper(payload)) // Send a signal
+  }
+}
